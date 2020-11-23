@@ -6,9 +6,9 @@ import { HomeComponent } from './Pages/home/home.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path:'', component: AppComponent, children: [
-    {path: 'home', component: HomeComponent}
+    {path: 'home', component: HomeComponent},
+    {path: 'spots', loadChildren: ()=> import('./Pages/spots/spots.module').then(m => m.SpotsModule) },
   ]}
-
 ];
 
 @NgModule({
