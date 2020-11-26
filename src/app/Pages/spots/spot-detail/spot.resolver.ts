@@ -13,6 +13,7 @@ export class SpotResolver implements Resolve<Spot>{
     constructor(private spotService: SpotService){}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-        return this.spotService.getById(1);
+        return this.spotService.getById(1)
+        ;
     }
 }
