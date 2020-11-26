@@ -8,6 +8,8 @@ import { FooterComponent } from './Layouts/footer/footer.component';
 import { MenuComponent } from './Layouts/menu/menu.component';
 import { SidenavMenuComponent } from './Layouts/sidenav-menu/sidenav-menu.component';
 import { HomeComponent } from './Pages/home/home.component';
+import { APP_CONFIG } from './Shared/config';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HomeComponent } from './Pages/home/home.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_CONFIG, useValue: environment.apiEndpointConfig },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

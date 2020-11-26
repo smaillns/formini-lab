@@ -1,32 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Spot } from '../Models/Spot'
-
-const defaultSpot: Spot = {
-    id: 1,
-    name: 'Ruines romaines',
-    images: ['assets/tipaza.jpg'],
-    evaluation: 5,
-    province: 'Tipaza',
-    country: 'Algérie'
-}
-
-const spots: Spot[] = []
-
+import { AbstractService } from './abstract-service.service';
+import { HttpClient } from '@angular/common/http';
+import {APP_CONFIG, AppConfig} from '../config';
 
 
 @Injectable({
     providedIn: 'root'
 })
-export class SpotService{
+export class SpotService extends AbstractService<Spot, number>{
 
-    getSpotById(id: number){
-        //always return the default value
-        return defaultSpot;
-    }
+    url: string;
 
-
-    getAllSpots(){
-        return spots;
+    constructor(http: HttpClient, @Inject(APP_CONFIG) config: AppConfig) {
+        super(http);
+        this.url = config.apiEndpoint.concat('/spots');
     }
 
 }

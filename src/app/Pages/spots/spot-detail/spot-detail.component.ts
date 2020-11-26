@@ -9,11 +9,10 @@ import { SpotService } from 'src/app/Shared/Services/spot.service';
 })
 export class SpotDetailComponent implements OnInit {
 
-  constructor(private spotService: SpotService, private route: ActivatedRoute) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    // console.log(this.spotService.getSpotById(1));
-    this.route.data.subscribe(res => console.log(res));
+  ngOnInit(){
+    
   }
 
 }
